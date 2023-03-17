@@ -1,0 +1,6 @@
+Exception handling
+
+1)Create Employee object with data members name,employeid,phoneno,email,address,location,Salary
+->Check proper validation 
+->Use custom exceptions to handle proper data
+->Push data into jdbc
