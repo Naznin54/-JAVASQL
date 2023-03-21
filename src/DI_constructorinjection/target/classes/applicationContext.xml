@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id="Roles" class="ustbatch3.DI_constructorinjection.Roles">
+<constructor-arg name="character" value="Naz"></constructor-arg>
+<constructor-arg name="responsibility" value="Sister"></constructor-arg>
+
+</bean>
+<bean id="Roles1" class="ustbatch3.DI_constructorinjection.Roles">
+<constructor-arg name="character" value="Naznin"></constructor-arg>
+<constructor-arg name="responsibility" value="Daughter"></constructor-arg>
+
+</bean>
+</beans>
