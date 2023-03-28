@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bank Form Application</title>
+	<script>
+		// Get current date and time
+		var now = new Date();
+		var currentDate = now.toISOString().slice(0,10);
+		var currentTime = now.toTimeString().slice(0,8);
+	</script>
+</head>
+<body>
+	<h1>Bank Form Application</h1>
+	<form>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required><br><br>
+
+		<label for="aadhar">Aadhar Card Number:</label>
+		<input type="number" id="aadhar" name="aadhar" required><br><br>
+
+		<label for="pan">PAN Card Number:</label>
+		<input type="text" id="pan" name="pan" required><br><br>
+
+		<label for="branch">Branch:</label>
+		<input type="text" id="branch" name="branch" required><br><br>
+
+		<label for="amount">Amount:</label>
+		<input type="number" id="amount" name="amount" required><br><br>
+
+		<label for="time">Time (in years):</label>
+		<input type="number" id="time" name="time" required><br><br>
+
+		<label for="rate">Rate (1-5):</label>
+		<input type="number" id="rate" name="rate" required min="1" max="5"><br><br>
+
+		<label for="date">Date:</label>
+		<input type="text" id="date" name="date" value="" readonly><br><br>
+
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		// Set current date and time to input field
+		document.getElementById("date").value = currentDate + " " + currentTime;
+	</script>
+</body>
+</html>

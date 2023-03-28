@@ -1,0 +1,14 @@
+body {
+    text-align: center ;
+    padding: right 8px; ;
+    background-image: url("image.jpg");
+    background-size: cover;/* sets the size of the background image */
+    background-repeat: no-repeat; /* prevents the image from repeating */
+    background-position: center center; /* centers the image horizontally and vertically */
+    
+  }
+  
+  h1 {
+    text-align: center; 
+  }
+ 
