@@ -1,0 +1,256 @@
+1)function isPrime(num) {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+function findPrimes(numbers) {
+  return numbers.filter(isPrime);
+}
+
+// example usage
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const primes = findPrimes(numbers);
+console.log(primes); 
+
+2)function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) return false;
+
+  const charCount = {};
+
+  // Count the frequency of characters in the first string
+  for (let char of str1) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  // Compare the frequency of characters in the second string
+  for (let char of str2) {
+    if (!charCount[char]) return false;
+    charCount[char]--;
+  }
+
+  return true;
+}
+
+// Example usage
+const str1 = 'listen';
+const str2 = 'silent';
+
+if (isAnagram(str1, str2)) {
+  console.log(`${str1} and ${str2} are anagrams`);
+} else {
+  console.log(`${str1} and ${str2} are not anagrams`);
+}
+
+OR
+function isAnagram(str1, str2) {
+  // remove all non-alphanumeric characters and convert to lowercase
+  str1 = str1.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  str2 = str2.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  
+  // check if the length of the strings are equal
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  
+  // sort the characters in each string and compare them
+  return str1.split('').sort().join('') === str2.split('').sort().join('');
+}
+
+// example usage
+const str1 = 'rail safety';
+const str2 = 'fairy tales';
+if (isAnagram(str1, str2)) {
+  console.log(`${str1} and ${str2} are anagrams.`);
+} else {
+  console.log(`${str1} and ${str2} are not anagrams.`);
+}
+
+3)function fibonacci(n) {
+  let fib = [0, 1];
+  for (let i = 2; i < n; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
+  }
+  return fib;
+}
+
+// example usage
+const n = 10;
+const fib = fibonacci(n);
+console.log(`The first ${n} numbers in the Fibonacci sequence are: ${fib}`);
+
+4)// Parent class
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+  }
+}
+
+// Child class - Student
+class Student extends Person {
+  constructor(name, age, grade) {
+    super(name, age);
+    this.grade = grade;
+  }
+  
+  study() {
+    console.log(`${this.name} is studying in ${this.grade} grade.`);
+  }
+}
+
+// Child class - Employee
+class Employee extends Person {
+  constructor(name, age, jobTitle) {
+    super(name, age);
+    this.jobTitle = jobTitle;
+  }
+  
+  work() {
+    console.log(`${this.name} is a ${this.jobTitle} and is working hard.`);
+  }
+}
+
+// Child class - Father
+class Father extends Person {
+  constructor(name, age, children) {
+    super(name, age);
+    this.children = children;
+  }
+  
+  parent() {
+    console.log(`${this.name} is a father of ${this.children.length} children.`);
+  }
+}
+
+// Usage
+const john = new Student("John", 18, 12);
+john.greet(); // Output: Hello, my name is John and I'm 18 years old.
+john.study(); // Output: John is studying in 12 grade.
+
+const mike = new Employee("Mike", 32, "Software Developer");
+mike.greet(); // Output: Hello, my name is Mike and I'm 32 years old.
+mike.work(); // Output: Mike is a Software Developer and is working hard.
+
+const david = new Father("David", 40, ["Alice", "Bob", "Charlie"]);
+david.greet(); // Output: Hello, my name is David and I'm 40 years old.
+david.parent(); // Output: David is a father of 3 children.
+
+5)Write a javascript function to convert roman numbers to numbers
+
+function romanToNumber(romanNumeral) {
+  const romanToDecimal = {
+    'M': 1000,
+    'CM': 900,
+    'D': 500,
+    'CD': 400,
+    'C': 100,
+    'XC': 90,
+    'L': 50,
+    'XL': 40,
+    'X': 10,
+    'IX': 9,
+    'V': 5,
+    'IV': 4,
+    'I': 1
+  };
+
+  let result = 0;
+  for (let i = 0; i < romanNumeral.length; i++) {
+    const currentSymbol = romanNumeral[i];
+    const nextSymbol = romanNumeral[i + 1];
+
+    if (romanToDecimal[currentSymbol] < romanToDecimal[nextSymbol]) {
+      result -= romanToDecimal[currentSymbol];
+    } else {
+      result += romanToDecimal[currentSymbol];
+    }
+  }
+
+  return result;
+}
+const decimalValue = romanToNumber('XXIV');//output:24
+console.log(decimalValue);
+
+OR
+function romanToDecimal(roman) {
+  // create an object to map Roman numerals to decimal values
+  const romanNumerals = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000
+  };
+
+  let result = 0;
+  let prevValue = 0;
+
+  // loop through the input string from right to left
+  for (let i = roman.length - 1; i >= 0; i--) {
+    const currentValue = romanNumerals[roman[i]];
+
+    // if the current value is greater than or equal to the previous value, add it to the result
+    if (currentValue >= prevValue) {
+      result += currentValue;
+    } 
+    // otherwise, subtract it from the result
+    else {
+      result -= currentValue;
+    }
+
+    prevValue = currentValue;
+  }
+
+  return result;
+}
+console.log(romanToDecimal('IV')); // Output: 4
+console.log(romanToDecimal('IX')); // Output: 9
+console.log(romanToDecimal('XL')); // Output: 40
+console.log(romanToDecimal('XC')); // Output: 90
+console.log(romanToDecimal('CM')); // Output: 900
+console.log(romanToDecimal('MCMXCIV')); // Output: 1994
+
+
+6) find the pair of numbers in a list that add up to a target number in JavaScript
+
+function reverseString(inputString) {
+  // Check if input string contains Malayalam characters
+  const malayalamRegex = /[\u0D00-\u0D7F]/g; // Regular expression to match Malayalam characters
+  if (malayalamRegex.test(inputString)) {
+    throw new Error('Input string contains Malayalam characters');
+  }
+
+  // Reverse the input string
+  const reversedString = inputString.split('').reverse().join('');
+
+  return reversedString;
+}
+console.log(reverseString('Hello, world!')); // Output: !dlrow ,olleH
+console.log(reverseString('നമസ്കാരം')); // Throws error: Input string contains Malayalam characters
+
+output:!dlrow ,olleH
+
+    throw new Error('Input string contains Malayalam characters');
+    ^
+
+ OR
+
+function reverseString(str) {
+  // Check if string contains non-ASCII characters
+  if (!/^[\x00-\x7F]*$/.test(str)) {
+    throw new Error('Input contains non-ASCII characters.');
+  }
+  // Reverse the string using Array.reverse() and String.join()
+  return str.split('').reverse().join('');
+}
+console.log(reverseString('hello')); // Output: 'olleh'
+console.log(reverseString('world')); // Output: 'dlrow'
