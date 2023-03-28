@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<head>
+    <title>Fixed and Reducing Interest Loan Estimator</title>
+    <style>
+      body{
+        background-color: rgb(196, 196, 46);
+        text-align:center;
+      }
+      table{
+        margin:auto;
+      }
+    </style>
+</head>
+<body>
+ <form>
+    <label for="principalamount">Principal loan amount(Rs)</label>
+    <input type="number" id="principalamount" name="principalamount"><br><br>
+  
+    <label for="interestrate">Interest Rate (%)</label>
+    <input type="number" id="interestrate" name="interestrate"><br><br>
+  
+    <label for="tenure">Tenure (in months)</label>
+    <input type="number" id="tenure" name="tenure"><br><br>
+  
+    <button type="button" id="estimate">Estimate</button><br><br>
+      <h2>Loan Estimation</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Details</th>
+            <th>Reducing Interest loan</th>
+            <th>Fixed interest loan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Interest (Rs)</td>
+            <td><input type="number" name="reducinginterest_interest" id="reducinginterest_interest"></td>
+            <td><input type="number" name="fixedinterest_interest" id="fixedinterest_interest"></td>
+          </tr>
+          <tr>
+            <td>Total Payment (Rs)</td>
+            <td><input type="number" name="reducinginterest_payment" id="reducinginterest_payment"></td>
+            <td><input type="number" name="fixedinterest_payment" id="fixedinterest_payment"></td>
+          </tr>
+          <tr>
+            <td>Monthly EMI (Rs)</td>
+            <td><input type="number" name="reducinginterest_emi" id="reducinginterest_emi"></td>
+            <td><input type="number" name="fixedinterest_emi" id="fixedinterest_emi"></td>
+          </tr>
+        </tbody>
+      </table>
+    
+    
+   </form>
+  </body>
+  
